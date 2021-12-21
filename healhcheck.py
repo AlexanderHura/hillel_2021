@@ -8,4 +8,4 @@ def healthcheck(arg_1: int) -> str:
 
 
 random_list = [1, 2, 3]
-print(f'linter flake8')
+print("linter flake8")
