@@ -9,7 +9,6 @@ django = "*"
 [dev-packages]
 flake8 = "*"
 isort = "*"
-black = "*"
 
 [requires]
 python_version = "3.8"
