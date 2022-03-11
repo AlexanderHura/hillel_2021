@@ -1,3 +1,24 @@
+# Modules of admin panel
+"""Django admin panel."""
 from django.contrib import admin
+from .models import Like, Post
 
-# Register your models here.
+
+class LikeTabularInLine(admin.TabularInline):
+    """LikeTabularInLine."""
+
+    model = Like
+
+
+class PostAdmin(admin.ModelAdmin):
+    """PostAdmin class."""
+
+    inlines = [LikeTabularInLine]
+
+    class Meta:
+        """Meta class."""
+
+        model = Post
+
+
+admin.site.register(Post, PostAdmin)
