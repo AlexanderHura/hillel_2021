@@ -1,0 +1,15 @@
+#SQLite
+*.sqlite3
+
+#Python
+__pycache__/
+
+
+#Editors
+#=======
+#VScode
+./VScode
+
+
+#OS
+#=======
