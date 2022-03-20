@@ -1,0 +1,12 @@
+{% extends 'core/base.html' %} 
+
+{% block content %}
+    <title>Posts</title>
+    <h4><a href="/admin/core/post/">Posts:</a></h4>
+    {% for post in object_list %}
+        <article class="post">
+            <div>{{ post.title }} | {{ post.content }} | <time class="date"> Created at:               
+                {{ post.created_at }}</time> by {{ post.user|linebreaksbr }} </div>
+        </article>        
+    {% endfor %}
+{% endblock %}

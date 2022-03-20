@@ -1,0 +1,30 @@
+nav { text-align: center }
+.image-align {
+        text-align: right;
+}
+.image-wrap {
+        width: 550px;
+        height: 10px;
+      }
+.image-flex {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}      
+
+footer {text-align: center}
+table{  border: 2px solid SlateBlue;
+        align: center;
+        width: 100%;
+        text-align: center;
+        border-collapse: collapse;
+        }
+td{ width: 25%;}
+th,td{padding: 10px 15px;}
+th{background: DodgerBlue;}
+tr:nth-child(2n) {background: #e8edff;}
+ol{
+        list-style: circle; 
+        margin: 0; 
+        padding: 0;
+    }
