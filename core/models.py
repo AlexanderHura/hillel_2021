@@ -1,5 +1,7 @@
 # Models.py
 """Models of database."""
+from time import process_time_ns
+from turtle import pos
 from django.db import models
 from django.conf import settings
 
@@ -8,8 +10,8 @@ class Db(models.Model):
     """Database class."""
 
     user = models.ForeignKey(
-        settings.AUTH_USER_MODEL, null=True, blank=False,
-        on_delete=models.SET_NULL)
+        settings.AUTH_USER_MODEL, null=True, blank=False, 
+        on_delete=models.SET_NULL, related_name="+")
     created_at = models.DateTimeField(auto_created=True)
     updated_At = models.DateTimeField(auto_now=True)
 
@@ -35,3 +37,4 @@ class Like(Db):
     """Like class."""
 
     post = models.ForeignKey("Post", null=False, blank=False, on_delete=models.CASCADE)
+    status = models.BooleanField(null=True, blank=True)
