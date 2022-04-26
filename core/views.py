@@ -1,10 +1,14 @@
 # from django.shortcuts import render
 """Views."""
 #from django.views.generic import TemplateView
-from telnetlib import STATUS
-from django.views.generic import ListView, DetailView
+#from telnetlib import STATUS
+#from urllib import request
+from django.views.generic import ListView, DetailView, DeleteView, UpdateView, CreateView
+from django.urls import reverse_lazy
 
 from .models import Post, Like
+from .forms import PostForm, User
+
 
 # def posts(requests):
 #     posts = Post.objects.all()
@@ -24,10 +28,11 @@ from .models import Post, Like
 
 
 class PostsView(ListView):
+    queryset = Post.objects.all()
     template_name = 'core/posts.html' 
     # p = Post.objects.first()
     # post_likes = p.like_set.all()
-    queryset = Post.objects.all()
+    
     # contex_object_name = "posts"
 
     def get_context_data(self, **kwargs):
@@ -44,20 +49,35 @@ class PostsView(ListView):
         ctx["results"] = results
         return ctx
 
-class PostDetailView(DetailView):
+class PostsDetailView(DetailView):
     queryset = Post.objects.all()
     template_name = 'core/post_ob.html'
-    # pk_url_kwarg = 'id'
+    pk_url_kwarg = 'id'
 
-class PostDeleteView():
-    pass
+class PostsDeleteView(DeleteView):
+    queryset = Post.objects.all()
+    template_name = 'core/post_delete.html'
+    pk_url_kwarg = 'id'
+    success_url = reverse_lazy("posts:list")
 
-class PostUpdateView():
-    pass
-     
-class PostCreateView():
-    pass
+class PostsUpdateView(UpdateView):
+    queryset = Post.objects.all()
+    template_name = 'core/post_update.html'
+    pk_url_kwarg = 'id'
+    fields = ["title", "content"]
+    success_url = reverse_lazy("posts:list")
 
+    
 
+class PostsCreateView(CreateView):
+    queryset = Post.objects.all()
+    template_name = 'core/post_create.html'
+    #fields = ["created_at", "title", "content", "user"]
+    success_url = reverse_lazy("posts:list")
+    form_class = PostForm
 
+    def form_valid(self, form):
+        user = User.objects.first()
+        form.instance.user = user  
+        return super().form_valid(form)
     
