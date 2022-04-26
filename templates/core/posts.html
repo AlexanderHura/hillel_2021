@@ -2,13 +2,11 @@
 
 {% block content %}
     <title>Posts</title>
+    <a href="{% url 'posts:create' %}">Create a new post</a>
     <h4><a href="/admin/core/post/">Posts:</a></h4>
     {% for post, likes, dislikes in results %}
         <article class="post">
-            <div>{{ post.title }} | {{likes }} | {{ dislikes }} </div>
-
-            {% comment %} <div>{{ post.title }} | {{ post.content }} | {{likes }} | {{ dislikes }} | <time class="date"> Created at:               
-                {{ post.created_at }} </time> by {{ post.user|linebreaksbr }} </div> {% endcomment %}
-        </article>        
+            <div><a href="{% url 'posts:detail' post.id %}">{{ post.title }}</a> | {{likes }} | {{ dislikes }} </div>
+         </article>         
     {% endfor %}
 {% endblock %}
