@@ -1,0 +1,11 @@
+{% extends 'core/base.html' %} 
+
+{% block content %}
+    <title>Posts</title>
+    <h4><a href="/admin/core/post/">Posts:</a></h4>
+  
+        <article class="post">
+            <div>{{ object.title }} </div>
+        </article>        
+    
+{% endblock %}

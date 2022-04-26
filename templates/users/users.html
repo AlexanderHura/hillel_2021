@@ -1,0 +1,20 @@
+{% extends 'core/base.html' %} 
+
+{% block content %}
+<title>Users</title>
+    <h4>Username lists:</h4>    
+    {% for user in object_list %}
+    <article class="user">
+        <ol>
+            <dev>
+                <li list-style-type: circle>
+                    <a href="/admin/auth/user/">
+                        {{ user.username }}
+                    </a>
+                </li>
+            </dev>
+        </ol>
+        <p>{{ user.text|linebreaksbr }}</p>
+        </article>
+    {% endfor %}
+{% endblock %}
