@@ -1,20 +1,28 @@
-nav { text-align: center }
+nav { text-align: right }
 .image-align {
-        text-align: right;
+        text-align: center;
 }
-.image-wrap {
-        width: 550px;
-        height: 10px;
-      }
-.image-flex {
-  display:flex;
-  align-items: center;
-  justify-content: center;
-}      
+
+.tur{
+        /* padding-top:5px; */
+        margin-top:3px;
+        margin-left:45px;
+        width:200px;
+        height:35px;
+    }
+     
+.tur2{
+        padding-top:5px;
+        padding-bottom:5px;
+        width:900px;
+        height:30px;
+        margin-left:45px;
+     
+    }
 
 footer {text-align: center}
 table{  border: 2px solid SlateBlue;
-        align: center;
+        box-align: center;
         width: 100%;
         text-align: center;
         border-collapse: collapse;
