@@ -27,8 +27,8 @@ class Post(Db):
     content = models.TextField(null=False, blank=False)
     image = models.CharField(max_length=255, null=True, blank=True)
 
-    def save(self, commit):
-        pass
+    # def save(self, commit):
+    #     pass
 
     def __str__(self) -> str:
         """Print Title, User, Content."""

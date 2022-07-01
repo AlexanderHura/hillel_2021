@@ -5,24 +5,39 @@
         <!-- <title>Posts</title> -->
         <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'> -->
-        {% comment %} <link rel="stylesheet" href="{% static 'css/blog.css' %}"> {% endcomment %}
+        <!-- {% comment %} <link rel="stylesheet" href="{% static 'css/blog.css' %}"> {% endcomment %} -->
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="{% static "css/styles.css" %}" />
+        <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> -->
         <!-- <link rel="stylesheet" href="{% static "css/bs.css" %}" /> -->
+        <link rel="stylesheet" href="{% static "css/styles.css" %}" />
     </head>
     <body>
-        <header class="page-header">
-            <div class="container"><h4>War in Ukraine</h4></div>
-            <div class="image-wrap image-flex">
-            <img src={% static "/img/179341304.jpg" %} width="120" height="80" >
+    <div class="tur">
+        <img src={% static "/img/179341304.jpg" %} alt="flag" style="float:left;width:42px;height:32px;">       
+        <img src={% static "/img/european-union-155207_960_720.png" %} alt="flag" style="float:left;width:42px;height:32px;margin-left:0px;">     
+        <img src={% static "/img/union-jack-26119_960_720.webp" %} alt="flag" style="float:left;width:42px;height:32px;margin: left 0px;">
+        <img src={% static "/img/america-flag-2043285__340.webp" %} alt="flag" style="float:left;width:42px;height:32px;margin: left 0px;">
+        </div>  
+        <div class="tur2">
+            <img src={% static "/img/3ukr.png" %} alt="flag" style="float:left;width:32px;height:32px;">       
+            <img src={% static "/img/CE.png" %} alt="flag" style="float:left;width:42px;height:25px;margin-left:0px;">     
+            <img src={% static "/img/UKCA.webp" %} alt="flag" style="float:left;width:42px;height:32px;margin: left 0px;">
+            <img src={% static "/img/FCC_New_Logo.svg.png" %} alt="flag" style="float:left;width:42px;height:32px;margin: left 0px;">
             </div>
-            <div class="container">
+        
+    <header >
+        <div><h3 class="tur2" style="margin-bottom: 5;">Name of content</h3></div>
+            
+
+            <hr style="height:4px;  background-color:blue;margin: 0;">
+            <hr style="height:4px;background-color:rgb(246, 246, 11);margin: 0;">
+            
+            <div class="tur">
               <h6><a href="/admin/">admin</a> | <a href="/posts/">posts</a> | <a href="/users/">users</a></h6>
             </div>
             
         </header>
-            <main class="container">
+            <main class="tur">
             <div class="row">
                 <div class="col">
                 {% block content %}

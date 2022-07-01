@@ -1,4 +1,4 @@
-# from django.shortcuts import render
+from django.shortcuts import render
 """Views."""
 #from django.views.generic import TemplateView
 #from telnetlib import STATUS
@@ -78,6 +78,5 @@ class PostsCreateView(CreateView):
 
     def form_valid(self, form):
         user = User.objects.first()
-        form.instance.user = user  
+        form.instance.user = user
         return super().form_valid(form)
-    
