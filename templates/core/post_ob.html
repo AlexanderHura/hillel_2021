@@ -1,11 +1,14 @@
 {% extends 'core/base.html' %} 
 
 {% block content %}
-    <title>Posts</title>
-    <h4><a href="/admin/core/post/">Posts:</a></h4>
+    <title>Posts ob</title>
+    <h4><a href="/admin/core/post/">Posts Detailed:</a></h4>
   
         <article class="post">
-            <div>{{ object.title }} </div>
-        </article>        
-    
+            <div> {{ object }} </div>
+        </article>  
+        
+
+    <a href="{% url 'posts:delete' object.id %}">Delete post</a>
+    <a href="{% url 'posts:update' object.id %}">Update post</a>
 {% endblock %}

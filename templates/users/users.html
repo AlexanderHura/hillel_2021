@@ -1,20 +1,37 @@
 {% extends 'core/base.html' %} 
+{% block title %}Users{% endblock %}
 
 {% block content %}
-<title>Users</title>
-    <h4>Username lists:</h4>    
-    {% for user in object_list %}
-    <article class="user">
-        <ol>
-            <dev>
-                <li list-style-type: circle>
-                    <a href="/admin/auth/user/">
-                        {{ user.username }}
-                    </a>
-                </li>
-            </dev>
-        </ol>
-        <p>{{ user.text|linebreaksbr }}</p>
-        </article>
-    {% endfor %}
+     
+            <table class="table_head" style="margin: auto;"  >
+
+                
+                <tr>
+                    <th colspan="7" class="border"><h4>Username lists:</h4> </th>                    
+                </tr>
+                <tr>
+                    <td class="border">username</td>
+                    <td class="border">ФИО</td>
+                    <td class="border">email</td>
+                    <td class="border">пол</td>
+                    <td class="border">День рождения</td>
+                    <td class="border">Permissions</td>
+                    <td class="border">staff</td>
+                    
+                </tr>
+                {% for user in object_list %}
+                <tr >
+                    <td class="border">{{ user.username }}</td>
+                    <td class="border">{{ user.fio }}</td>
+                    <td class="border">{{ user.email }}</td>
+                    <td class="border">{{ user.gender }}</td>
+                    <td class="border">{{ user.birth_date }}</td>
+                    <td class="border">{{ user.groups }}</td>
+                    <td class="border">{{ user.is_staff }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </dev>
+    </ol>
+       
 {% endblock %}

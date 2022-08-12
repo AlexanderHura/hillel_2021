@@ -1,0 +1,15 @@
+{% extends 'core/base.html' %} 
+
+{% block content %}
+    <title>Delete Page</title>
+    <h4><a href="/admin/core/post/">Delete This Post:</a></h4>
+  
+        <article class="post">
+            <div>{{ object }} </div>
+        </article> 
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirm</button>
+    </form>
+    
+{% endblock %}

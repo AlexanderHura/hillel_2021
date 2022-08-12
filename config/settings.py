@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-m21o^7gz9*ri!w1%rv*&1=sae6by8^h+8mvs(6-rtop+khznfq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -40,7 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Local
-    'core'
+    'users.apps.UsersConfig',
+    'core.apps.CoreConfig',
+        
+   
 ]
 
 MIDDLEWARE = [
@@ -123,6 +126,7 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
+    
 ]
 
 # Default primary key field type
@@ -130,4 +134,11 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'auth.User'
+AUTH_USER_MODEL = 'users.CustomUser'
+
+# Redirect to home URL after login (Default redirects to /accounts/profile/)
+# LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "home"
+# LOGIN_URL = '/login/'
+# LOGOUT_URL = '/logout/'

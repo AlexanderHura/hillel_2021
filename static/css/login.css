@@ -1,0 +1,95 @@
+.my_op_head {
+    width:60px;
+    height:35px;
+    margin: auto;    
+}
+
+.my_op_head_1 {
+    width:150px;
+    height:35px;
+    margin: auto;    
+}
+
+.button_login{
+    display: inline-block;
+   padding: 0.5em 6em;
+   text-decoration: none;
+   background: #000000;
+   color: #fdf9f9;
+   border-bottom: solid 4px #000000;
+   border-radius: 25px;
+   margin-left: 12%;
+   margin-top: 7px;
+   font-size: 18px
+}
+
+
+.table_login {
+    border-radius: 25px; 
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width:200px;
+    height:35px;
+    border: 0px solid rgb(102, 102, 102);
+}
+
+/* .table_login td{ width: 10%;}
+.table_login th,td{padding: 5px 5px;}
+.table_login th{background: rgb(255, 255, 255);}
+.table_login tr:nth-child(2n) {background: #f61f1f;} */
+
+c.table_login th {
+    font-weight: normal;
+    color: #039;
+    border-bottom: 2px solid #6678b1;
+    padding: 10px 8px;
+  }
+  
+.table_login td {
+    color: #669;
+    padding: 8px 7px;
+    transition: .3s linear;
+  }
+.table_login tr:hover td {
+    color: #6699ff;
+  } 
+
+
+
+
+
+.border_login {
+    border-radius: 40px; 
+    border: 1px solid #d8dde0;
+    background: #d8dde0;
+    width:350px;
+    height:195px;
+    margin: auto;
+}
+
+.border_sign{
+    border-radius: 40px; 
+    border: 1px solid #d8dde0;
+    background: #d8dde0;
+    width:500px;
+    height:550px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.button_create{
+    width: 100%;
+    margin-top: 0.5%;
+    display: inline-block;
+   padding: 0.5em 2em;
+   text-decoration: none;
+   background: #000000;
+   color: #fdf9f9;
+   /* border-bottom: solid 4px #000000; */
+   border-radius: 15px;
+   /* margin-left: 20%; */
+   font-size: 10px
+}
+
+
