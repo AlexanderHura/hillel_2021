@@ -5,6 +5,7 @@ from django.db import models
 from django.conf import settings
 
 
+
 class Db(models.Model):
     """Database class."""
 
@@ -16,7 +17,7 @@ class Db(models.Model):
 
     class Meta:
         """Meta class."""
-
+        permissions =  (("posts", "users"),)
         abstract = True
 
 

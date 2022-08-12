@@ -1,5 +1,12 @@
 {% extends "core/base.html" %}
+{% load static %}
+
+
+{% block title %}Login{% endblock %}
+
 {% block content %}
+<h2 class="my_op_head">Login</h2>
+<link rel="stylesheet" type="text/css" href="{% static '/css/login.css' %}" />
 
 {% if form.errors %}
   <p>Your username and password didn't match. Please try again.</p>
@@ -14,11 +21,12 @@
   {% endif %}
 {% endif %}
 
-<form method="post" action="{% url 'login' %}">
+<form method="post" action="{% url 'login' %}" class="container">
 {% csrf_token %}
-<table>
+<div class="border_login">
+<table class="table_login">
 
-<tr>
+<tr >
   <td>{{ form.username.label_tag }}</td>
   <td>{{ form.username }}</td>
 </tr>
@@ -29,11 +37,15 @@
 </tr>
 </table>
 
-<input type="submit" value="login" />
-<input type="hidden" name="next" value="{{ next }}" />
-</form>
+  <button class="button_login" type="submit">Login</button>
+
+<!-- <input type="submit" value="login" />
+<input type="hidden" name="next" value="{{ next }}" /> -->
+
 
 {# Assumes you setup the password_reset view in your URLconf #}
-<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+<a href="{% url 'password_reset' %}"  style="margin-left:130px">Lost password?</a>
 
+</div>
+</form>
 {% endblock %}

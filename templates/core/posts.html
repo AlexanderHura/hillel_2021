@@ -1,12 +1,36 @@
 {% extends 'core/base.html' %} 
+{% load static %}
+{% block title %}Posts{% endblock %}
 
 {% block content %}
-    <title>Posts</title>
-    <a href="{% url 'posts:create' %}">Create a new post</a>
-    <h4><a href="/admin/core/post/">Posts:</a></h4>
-    {% for post, likes, dislikes in results %}
-        <article class="post">
-            <div><a href="{% url 'posts:detail' post.id %}">{{ post.title }}</a> | {{likes }} | {{ dislikes }} </div>
-         </article>         
-    {% endfor %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/login.css' %}" />
+
+   
+   <ol>
+    <dev> 
+   <table class="table_head" style="margin: auto;">
+    <tr>
+        <th colspan="7" class="border"><h4><a href="/admin/core/post/">Posts:</a></h4> </th>                    
+    </tr>
+        <tr >
+            <td class="border">Posts</td>
+            <td class="border">Likes</td>
+            <td class="border">dislikes</td>
+           </tr>
+        {% for post, likes, dislikes in results %}
+        <tr>
+            <td class="border">{{ post.title }}</td>
+            <td class="border">{{likes }}</td>
+            <td class="border">{{ dislikes }}</td>
+        </tr>
+        {% endfor %}
+
+
+          </table>
+        </dev>
+    </ol>
+    <div class="my_op_head_1">
+    <button class="button_create"  onClick='location.href="{% url "posts:create" %}"'>Create a new post</button>
+    <!-- <h4 class="my_op_1"><a href="{% url 'posts:create' %}" target="_blank" >Create a new post</a></h4> -->
+    </div>
 {% endblock %}

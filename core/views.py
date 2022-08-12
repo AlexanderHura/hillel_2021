@@ -6,7 +6,9 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView, DeleteView, UpdateView, CreateView
 from django.urls import reverse_lazy
 
-from .models import Post, Like
+from django.contrib.auth.mixins import PermissionRequiredMixin
+
+from .models import Post
 from .forms import PostForm, User
 
 
@@ -27,7 +29,8 @@ from .forms import PostForm, User
 #         return ctx
 
 
-class PostsView(ListView):
+class PostsView(PermissionRequiredMixin, ListView):
+    permission_required = 'core.posts'
     queryset = Post.objects.all()
     template_name = 'core/posts.html' 
     # p = Post.objects.first()
@@ -53,6 +56,7 @@ class PostsDetailView(DetailView):
     queryset = Post.objects.all()
     template_name = 'core/post_ob.html'
     pk_url_kwarg = 'id'
+    
 
 class PostsDeleteView(DeleteView):
     queryset = Post.objects.all()
@@ -80,3 +84,4 @@ class PostsCreateView(CreateView):
         user = User.objects.first()
         form.instance.user = user
         return super().form_valid(form)
+

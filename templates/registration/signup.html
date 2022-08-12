@@ -1,0 +1,105 @@
+<style>
+  [data-tooltip] {
+   position: relative; /* Относительное позиционирование */ 
+  }
+  [data-tooltip]::after {
+   content: attr(data-tooltip); /* Выводим текст */
+   position: absolute; /* Абсолютное позиционирование */
+   width: 300px; /* Ширина подсказки */
+   left: 0; top: 0; /* Положение подсказки */
+   background: #404548; /* Синий цвет фона */
+   color: #fff; /* Цвет текста */
+   padding: 0.5em; /* Поля вокруг текста */
+   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Параметры тени */
+   pointer-events: none; /* Подсказка */
+   opacity: 0; /* Подсказка невидима */
+   transition: 1s; /* Время появления подсказки */
+  } 
+  [data-tooltip]:hover::after {
+   opacity: 1; /* Показываем подсказку */
+   left: 8em; /* Положение подсказки */
+  }
+ </style>
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}Sign Up{% endblock %}
+
+
+
+{% block content %}
+<h2 class="my_op_head_1">Sign Up</h2>
+<link rel="stylesheet" type="text/css" href="{% static '/css/login.css' %}" />
+<form method="post" class="container">
+  {% csrf_token %}
+  
+    <div class="border_sign">
+      <table class="table_login">
+        <tr >
+          <td>
+            <p data-tooltip="Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.">  
+            {{ form.username.label_tag }}</p></td>
+          <td>{{ form.username }}</td>
+        </tr>
+
+        <tr >
+          <td>{{ form.email.label_tag }}</td>
+          <td>{{ form.email }}</td>
+        </tr>
+
+        <tr >
+          <td>{{ form.fio.label_tag }}</td>
+          <td>{{ form.fio }}</td>
+        </tr>
+
+        <tr >
+          <td>{{ form.gender.label_tag }}</td>
+          <td>{{ form.gender }}</td>
+        </tr>
+
+        <tr >
+          <td>{{ form.birth_date.label_tag }}</td>
+          <td>{{ form.birth_date }}</td>
+        </tr>
+
+        <tr >
+          <td>{{ form.phone.label_tag }}</td>
+          <td>{{ form.phone }}</td>
+        </tr>
+
+        <tr >
+          <td>
+            <p data-tooltip="Your password can’t be too similar to your other personal information.
+            Your password must contain at least 8 characters.
+            Your password can’t be a commonly used password.
+            Your password can’t be entirely numeric.">
+            {{ form.password1.label_tag }}
+          </p>
+          </td>
+          <td>{{ form.password1 }}</td>
+        </tr>
+
+        <tr >
+          <td>
+            <p data-tooltip="Enter the same password as before, for verification."> 
+            {{ form.password2.label_tag }}
+          
+          </td>
+          <td>{{ form.password2 }}</td>
+        </tr>
+
+        <tr >
+          <td>{{ form.groups.label_tag }}</td>
+          <td>{{ form.groups }}</td>
+        </tr>
+   
+      </table>
+
+
+  <button class="button_login" type="submit">Sign Up</button>
+
+  
+
+
+</form>
+{% endblock %}
